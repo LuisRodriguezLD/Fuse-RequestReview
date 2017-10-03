@@ -1,0 +1,20 @@
+<App>
+	<JavaScript>
+	var Device = require("Device");
+	var Review = require("ReviewModule");
+	var OS = parseFloat(Device.systemVersion);
+
+	function go(){
+		if(OS >= 10.3){
+			Review.requestReview();
+		} else {
+			console.log("API requires iOS 10.3 or greater");
+		}
+	}
+
+	module.exports = {go};
+	</JavaScript>
+	<StackPanel Width="600" Alignment="Center" ItemSpacing="20">
+		<Button Text="Request Review" Clicked="{go}" />
+	</StackPanel>
+</App>
