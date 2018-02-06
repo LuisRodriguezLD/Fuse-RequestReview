@@ -1,11 +1,11 @@
 <App>
 	<JavaScript>
-	var Device = require("Device");
+	var Environment = require("FuseJS/Environment");
 	var Review = require("ReviewModule");
-	var OS = parseFloat(Device.systemVersion);
+	var OS = parseFloat(Environment.mobileOSVersion);
 
 	function go(){
-		if(OS >= 10.3){
+		if(Environment.ios && OS >= 10.3){
 			Review.requestReview();
 		} else {
 			console.log("API requires iOS 10.3 or greater");

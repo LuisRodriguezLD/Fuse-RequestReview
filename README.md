@@ -10,19 +10,17 @@ Written in Swift and implemented using Foreign code.
 
 How do I use it?
 ----------
-First you need [Fuse Device](https://github.com/MaxGraey/fuse-device) by [MaxGraey](https://github.com/MaxGraey).
-Then you need to `require` both.
-```
-var Device = require("Device");
+```JavaScript
+var Environment = require("FuseJS/Environment");
 var Review = require("ReviewModule");
 ```
 `requestReview()` only works for iOS 10.3 or greater so we need to parse the systemVersion.
-```
-var OS = parseFloat(Device.systemVersion);
+```JavaScript
+var OS = parseFloat(Environment.mobileOSVersion);
 ```
 After that just check the OS and go
-```
-if(OS >= 10.3){ Review.requestReview() };
+```JavaScript
+if(Environment.ios && OS >= 10.3){ Review.requestReview() };
 ```
 
 Image
